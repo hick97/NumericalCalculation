@@ -1,4 +1,3 @@
-
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -19,8 +18,10 @@ public class toBinary {
         CalculaBinInt(partInt);
         
         for (int a : Contas) {
-            System.out.println(a);
+            System.out.printf("%d", a);
+            
         }
+        System.out.println("");
 
     }
 
@@ -30,9 +31,9 @@ public class toBinary {
              num = num/2;
              
              
-             Contas.add(resto);
+             Contas.addFirst(resto);
          }  
-         Contas.add(num);
+         Contas.addFirst(num);
 
     }
 }
