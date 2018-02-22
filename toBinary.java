@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class toBinary {
     //Linked list que guarda a parte inteira binária
-
     public static LinkedList<Integer> Contas = new LinkedList<Integer>();
+    //Linked list que guarda a parte fracionária binária
     public static LinkedList<Integer> ContasFra = new LinkedList<Integer>();
 
     public static void main(String args[]) {
