@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class toBinary {
 
@@ -11,13 +12,21 @@ public class toBinary {
     public static void main(String args[]) {
         // Recebe a STRING com o numero.
         Scanner sc = new Scanner(System.in);
-        String num = sc.nextLine();
+        String num = JOptionPane.showInputDialog("Digite o número a ser trabalhado: ");
         int i = 0;
 
         // Acha a posição do ponto. 
         int posPonto = num.indexOf(".");
         System.out.println("pos ponto: " + posPonto);
+        //Verifica se existe ponto na string.
+        if(posPonto == -1){
+            CalculaBinInt(Integer.parseInt(num));
+            for (int a : Contas) {
+                System.out.printf("%d", a);
 
+            }
+            System.out.println("");
+        }else{
         // Separa a parte inteira da fracionada.
         // Parte Inteira:
         int partInt = Integer.parseInt(num.substring(0, posPonto));
@@ -53,19 +62,24 @@ public class toBinary {
             }
         }
         System.out.println("");
-
+        }
     }
 
     // Trasforma parte Inteira decimal em binaria:
     public static void CalculaBinInt(int num) {
-        while (num != 1) {
+        // verifica se há parte inteira
+        if(num==0){
+            Contas.add(num);
+        }else{
+            while (num != 1) {
             int resto = num % 2;
             num = num / 2;
 
             Contas.addFirst(resto);
         }
         Contas.addFirst(num);
-
+        }
+        
     }
 
     // Trasforma parte Fracionada decimal em binaria:
