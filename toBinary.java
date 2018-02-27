@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class toBinary {
+
     //Linked list que guarda a parte inteira binária
     public static LinkedList<Integer> Contas = new LinkedList<Integer>();
     //Linked list que guarda a parte fracionária binária
@@ -32,20 +33,29 @@ public class toBinary {
         }
         System.out.println("Inteiro: " + partInt + "\nFracio: " + partFra + " \nTamnho da parte Fra: " + partFraS.length());
         CalculaBinInt(partInt);
-        CalculaBinFra(partFra);
+        boolean controle = CalculaBinFra(partFra); // verifica se há parte fracionada.
+        // Imprime parte binaria fracionada
+        if (controle) {
+            for (int a : Contas) {
+                System.out.printf("%d", a);
 
-        for (int a : Contas) {
-            System.out.printf("%d", a);
+            }
+            System.out.printf(".");
+            for (int a : ContasFra) {
+                System.out.printf("%d", a);
 
-        }
-        System.out.printf(".");
-        for (int a : ContasFra) {
-            System.out.printf("%d", a);
+            }
+        // Imprime parte binária inteira    
+        } else {
+            for (int a : Contas) {
+                System.out.printf("%d", a);
 
+            }
         }
         System.out.println("");
 
     }
+
     // Trasforma parte Inteira decimal em binaria:
     public static void CalculaBinInt(int num) {
         while (num != 1) {
@@ -57,22 +67,27 @@ public class toBinary {
         Contas.addFirst(num);
 
     }
+
     // Trasforma parte Fracionada decimal em binaria:
     // Obs: Sem inclusão de dizima binária.
-    public static void CalculaBinFra(double num) {
-        double n = num*2;
-        while (n != 0) {          
+    public static boolean CalculaBinFra(double num) {
+        if (num == 0) {
+            return false;
+        }
+        double n = num * 2;
+        while (n != 0) {
             if (n >= 1) {
                 ContasFra.addFirst(1);
-                n = n-1;
-                
+                n = n - 1;
+
             } else {
                 ContasFra.addFirst(0);
-                
+
             }
-            n = n*2;
+            n = n * 2;
 
         }
-
+        return true;
     }
 }
+
