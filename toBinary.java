@@ -91,11 +91,11 @@ public class toBinary {
         double n = num * 2;
         while (n != 0) {
             if (n >= 1) {
-                ContasFra.addFirst(1);
+                ContasFra.add(1);
                 n = n - 1;
 
             } else {
-                ContasFra.addFirst(0);
+                ContasFra.add(0);
 
             }
             n = n * 2;
